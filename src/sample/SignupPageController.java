@@ -297,7 +297,7 @@ public class SignupPageController {
             MongoClientURI uri = new MongoClientURI(
                     "mongodb://ajagundeomkar:VViratkoli%40%4011@core2webattendence-shard-00-00-m7irc.mongodb.net:27017,core2webattendence-shard-00-01-m7irc.mongodb.net:27017,core2webattendence-shard-00-02-m7irc.mongodb.net:27017/test?ssl=true&replicaSet=Core2WebAttendence-shard-0&authSource=admin&retryWrites=true&w=majority");
 
-            MongoClient mongoClient = new MongoClient(uri);
+            mongoClient = new MongoClient(uri);
             MongoDatabase database = mongoClient.getDatabase("core2webAttendenceApplication");
             mongoCollection = database.getCollection("admin_details");
         } catch (MongoException e) {
