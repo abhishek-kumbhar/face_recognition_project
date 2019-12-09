@@ -133,6 +133,7 @@ public class Controller {
                     System.out.println("Found Element " + cursor.next());
                     while (cursor.hasNext()) {
                         System.out.println("In while Cursoring ...");
+                        System.out.println("Found Element " + cursor.next());
                         Document document = cursor.next();
 
                         String thisUsername = document.getString("username");
@@ -150,9 +151,7 @@ public class Controller {
                                     ((Stage) window).close();
                                 }
 
-                                if (window instanceof Stage){
-                                    ((Stage) window).close();
-                                }
+
 
                                 Parent root = FXMLLoader.load(getClass().getResource("../views/adminDashboard.fxml"));
                                 newStage.initStyle(StageStyle.UNDECORATED);

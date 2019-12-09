@@ -15,6 +15,16 @@
 }
 
 
+.closeBtn{
+
+    -fx-fill:#FF6B6B;
+}
+
+.closeBtn:hover{
+
+    -fx-fill:#F2338A  ;
+}
+
 .button1 {
     -fx-background-color: #E5E5E5;
     -fx-text-fill: #383838;

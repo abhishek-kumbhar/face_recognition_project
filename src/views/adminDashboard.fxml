@@ -17,12 +17,15 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1150.0" styleClass="adminDashboard" stylesheets="@../sample/adminDashboard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1150.0" styleClass="adminDashboard" stylesheets="@../sample/adminDashboard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminDashboard">
    <children>
       <VBox prefHeight="768.0" prefWidth="306.0" styleClass="leftPanel" stylesheets="@../sample/stylesheet.css">
          <children>
-            <ImageView fitHeight="111.0" fitWidth="306.0" pickOnBounds="true" preserveRatio="true" />
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="20.0" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="OverView">
+            <ImageView fitHeight="150.0" fitWidth="306.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Core2Web_Technologies.png" />
+               </image></ImageView>
+            <JFXButton fx:id="overviewBtn" alignment="BASELINE_LEFT" graphicTextGap="20.0" onMouseClicked="#overviewBtnClicked" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="OverView">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -37,7 +40,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="20.0" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Student Details">
+            <JFXButton fx:id="studentDetailsBtn" alignment="BASELINE_LEFT" graphicTextGap="20.0" onMouseClicked="#studentDetailsBtnClicked" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Student Details">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -52,7 +55,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="20.0" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Admission Details">
+            <JFXButton fx:id="admissionDetailsBtn" alignment="BASELINE_LEFT" graphicTextGap="20.0" onMouseClicked="#admissionDetailsBtnClicked" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Admission Details">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -67,7 +70,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="20.0" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Attendence Book">
+            <JFXButton fx:id="attendanceBookBtn" alignment="BASELINE_LEFT" graphicTextGap="20.0" onMouseClicked="#attendanceBookBtnPressed" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Attendence Book">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -82,7 +85,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="20.0" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Admin Details">
+            <JFXButton fx:id="adminDetailsBtn" alignment="BASELINE_LEFT" graphicTextGap="20.0" onMouseClicked="#adminDetailsBtnClicked" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Admin Details">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -102,14 +105,14 @@
                   <Font name="Verdana Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="32.0" prefWidth="306.0" text="Omkar Ajagunde" textFill="WHITE">
+            <Label fx:id="adminNameLabel" alignment="CENTER" prefHeight="32.0" prefWidth="306.0" text="Omkar Ajagunde" textFill="WHITE">
                <font>
                   <Font name="Verdana Bold" size="22.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <Pane layoutX="306.0" prefHeight="768.0" prefWidth="845.0" style="-fx-background-color: white;">
+      <Pane fx:id="adminOperationsArea" layoutX="306.0" prefHeight="768.0" prefWidth="845.0" style="-fx-background-color: white;">
          <children>
             <Pane layoutX="371.0" layoutY="57.0" prefHeight="186.0" prefWidth="426.0" style="-fx-background-color: #FF6B6B;" styleClass="raisedBox" stylesheets="@../sample/adminDashboard.css">
                <children>
@@ -233,7 +236,7 @@
                   <Font name="Verdana Bold" size="18.0" />
                </font>
             </Label>
-            <TableView layoutX="34.0" layoutY="412.0" prefHeight="329.0" prefWidth="771.0" styleClass="tableView" stylesheets="@../sample/adminDashboard.css">
+            <TableView fx:id="tableView" layoutX="34.0" layoutY="412.0" prefHeight="329.0" prefWidth="771.0" styleClass="tableView" stylesheets="@../sample/adminDashboard.css">
               <columns>
                 <TableColumn editable="false" prefWidth="85.0" styleClass="studentID" text="Student ID" />
                 <TableColumn prefWidth="93.0" text="First name" />
@@ -246,6 +249,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
+            <FontAwesomeIconView fx:id="adminCloseBtn" glyphName="CLOSE" layoutX="810.0" layoutY="29.0" onMouseClicked="#adminCloseBtnPressed" size="30" styleClass="closeBtn" />
          </children>
       </Pane>
    </children>
