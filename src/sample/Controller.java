@@ -3,7 +3,7 @@
  * Author : Omkar Basavraj Ajagunde
  * email : ajagundeomkar@gmail.com
  * gitHub : https://github.com/omkarajagunde
- *
+ * <p>
  * Contribution for Core2Web Technologies Attendence System By Face_recognition
  */
 
@@ -133,15 +133,15 @@ public class Controller {
                                 break;
                             } else {
                                 dialogDisplay(stackPane, "Wrong Password Entered ...");
+                                continue;
                             }
 
                         }
 
-                    }
+                        if (!cursor.hasNext())
+                            dialogDisplay(stackPane,"User Not Present In Database ...");
 
-                } else {
-                    System.out.println("No Elements found");
-                    dialogDisplay(stackPane, "No Such User Found,\nPlease Sign Up ...");
+                    }
 
                 }
 
