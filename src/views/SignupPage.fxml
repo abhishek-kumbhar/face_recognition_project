@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignupPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignupPageController">
    <children>
       <StackPane fx:id="stackPane" layoutX="10.0" prefHeight="600.0" prefWidth="380.0">
          <children>
-            <Pane fx:id="contentLoader" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="380.0" style="-fx-background-color: transparent;" stylesheets="@stylesheet.css">
+            <Pane fx:id="contentLoader" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="380.0" style="-fx-background-color: transparent;" stylesheets="@../sample/stylesheet.css">
                <children>
                   <Label layoutX="21.0" layoutY="55.0" text="Hello New Admin, ">
                      <font>
@@ -41,7 +41,7 @@
                         <Font name="PT Sans Bold" size="15.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXButton fx:id="signupBtn" buttonType="RAISED" layoutX="21.0" layoutY="524.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#signupBtnPressed" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@stylesheet.css" text="Sign Up Now" textFill="WHITE">
+                  <JFXButton fx:id="signupBtn" buttonType="RAISED" layoutX="21.0" layoutY="524.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#signupBtnPressed" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Sign Up Now" textFill="WHITE">
                      <font>
                         <Font name="PT Sans Bold" size="13.0" />
                      </font>

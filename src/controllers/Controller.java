@@ -7,7 +7,7 @@
  * Contribution for Core2Web Technologies Attendence System By Face_recognition
  */
 
-package sample;
+package controllers;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.events.JFXDialogEvent;
@@ -22,9 +22,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
@@ -32,7 +35,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.Window;
 import org.bson.Document;
+import sample.Main;
 
 import javax.management.Query;
 
@@ -44,6 +51,11 @@ public class Controller {
 
     @FXML // fx:id="usernameLoginPage"
     private JFXTextField usernameLoginPage; // Value injected by FXMLLoader
+
+    @FXML
+    private Label label;
+
+
 
     @FXML // fx:id="passwordLoginPage"
     private JFXPasswordField passwordLoginPage; // Value injected by FXMLLoader
@@ -92,7 +104,7 @@ public class Controller {
 
     @FXML
     void newSignupPage(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("SignupPage.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("../views/SignupPage.fxml"));
         contentLoader.getChildren().removeAll();
         contentLoader.getChildren().setAll(fxml);
     }
@@ -104,8 +116,10 @@ public class Controller {
      * @returns NULL
      */
     @FXML
-    void loginBtnPressed(MouseEvent event) {
+    void loginBtnPressed(MouseEvent event) throws IOException {
 
+        Stage newStage = new Stage();
+        Stage currentStage = new Stage();
         String username = usernameLoginPage.getText();
         String password = passwordLoginPage.getText();
 
@@ -114,7 +128,6 @@ public class Controller {
             if (!passwordLoginPage.getText().isEmpty()) {
 
                 MongoCursor<Document> cursor = mongoCollection.find().iterator();
-                //long found = mongoCollection.count(Document.parse("{username : " + username + "}"));
 
                 if (cursor.hasNext()) {
                     System.out.println("Found Element " + cursor.next());
@@ -127,9 +140,27 @@ public class Controller {
 
                             if (password.equals(document.getString("password"))) {
                                 System.out.println("Successfully Logged In ...");
-                                dialogDisplay(stackPane, "Successfully Logged In ...");
+                                //dialogDisplay(stackPane, "Successfully Logged In ...");
                                 cursor.close();
                                 // Go To Admin Panel DashBoard ... .. .
+
+                                // Exit the Current Stage and Go to the dashboard Stage ...
+                                Window window =   ((Node)(event.getSource())).getScene().getWindow();
+                                if (window instanceof Stage){
+                                    ((Stage) window).close();
+                                }
+
+                                if (window instanceof Stage){
+                                    ((Stage) window).close();
+                                }
+
+                                Parent root = FXMLLoader.load(getClass().getResource("../views/adminDashboard.fxml"));
+                                newStage.initStyle(StageStyle.UNDECORATED);
+                                newStage.setScene(new Scene(root, 1150, 768));
+                                newStage.show();
+
+
+
                                 break;
                             } else {
                                 dialogDisplay(stackPane, "Wrong Password Entered ...");

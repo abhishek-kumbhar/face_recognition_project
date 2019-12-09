@@ -7,7 +7,7 @@
  * Contribution for Core2Web Technologies Attendence System By Face_recognition
  */
 
-package sample;
+package controllers;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.events.JFXDialogEvent;
@@ -37,6 +37,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import org.bson.Document;
+import sample.Main;
 
 public class SignupPageController {
 
@@ -112,7 +113,7 @@ public class SignupPageController {
      */
     @FXML
     void backBtnPressed(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
         Main.stage.getScene().setRoot(fxml);
     }
 
