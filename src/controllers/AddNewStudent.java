@@ -8,11 +8,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
@@ -20,6 +24,9 @@ public class AddNewStudent {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
+
+    @FXML
+    private AnchorPane adminOperationsArea;
 
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
@@ -87,6 +94,7 @@ public class AddNewStudent {
     @FXML // fx:id="feCheckbox"
     private CheckBox feCheckbox; // Value injected by FXMLLoader
 
+
     @FXML // fx:id="seCheckbox"
     private CheckBox seCheckbox; // Value injected by FXMLLoader
 
@@ -117,8 +125,10 @@ public class AddNewStudent {
     }
 
     @FXML
-    void backBtnPressed(MouseEvent event) {
-
+    void backBtnPressed(MouseEvent event) throws IOException {
+        AnchorPane fxml = FXMLLoader.load(getClass().getResource("../views/StudentDetails.fxml"));
+        adminOperationsArea.getChildren().removeAll();
+        adminOperationsArea.getChildren().setAll(fxml);
     }
 
     @FXML
@@ -128,6 +138,7 @@ public class AddNewStudent {
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
+        assert adminOperationsArea != null : "fx:id=\"adminOperationsArea\" was not injected: check your FXML file 'AddNewStudent.fxml'.";
         assert stackPane != null : "fx:id=\"stackPane\" was not injected: check your FXML file 'AddNewStudent.fxml'.";
         assert contentLoader != null : "fx:id=\"contentLoader\" was not injected: check your FXML file 'AddNewStudent.fxml'.";
         assert closeBtn != null : "fx:id=\"closeBtn\" was not injected: check your FXML file 'AddNewStudent.fxml'.";
