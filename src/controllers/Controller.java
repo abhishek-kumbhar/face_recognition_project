@@ -12,17 +12,19 @@ package controllers;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.events.JFXDialogEvent;
 import com.mongodb.*;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -38,15 +40,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import org.bson.BsonDocument;
 import org.bson.Document;
-import sample.Main;
 
-import javax.management.Query;
+import javax.print.Doc;
 
 
 public class Controller {
 
-    private MongoCollection mongoCollection = null;
+    private MongoCollection<Document> mongoCollection = null;
     private MongoClient mongoClient = null;
 
     @FXML // fx:id="usernameLoginPage"
@@ -54,7 +56,6 @@ public class Controller {
 
     @FXML
     private Label label;
-
 
 
     @FXML // fx:id="passwordLoginPage"
@@ -85,7 +86,7 @@ public class Controller {
     private FontAwesomeIconView closeBtn; // Value injected by FXMLLoader
 
 
-    /*
+    /**
      * This method is used when the close or cross signed button on the
      * top right corner is clicked on a {@MouseEvent event}
      * Before closing the application the connections to the mongoDB cloud service
@@ -112,6 +113,7 @@ public class Controller {
     /**
      * This method is used is order to check weather the person is
      * signed up already in the software and avoid the access to others
+     *
      * @param event
      * @returns NULL
      */
@@ -119,61 +121,62 @@ public class Controller {
     void loginBtnPressed(MouseEvent event) throws IOException {
 
         Stage newStage = new Stage();
-        Stage currentStage = new Stage();
         String username = usernameLoginPage.getText();
         String password = passwordLoginPage.getText();
+
+        MongoCursor<Document> cursor = mongoCollection.find().iterator();
+
 
         if (!usernameLoginPage.getText().isEmpty()) {
 
             if (!passwordLoginPage.getText().isEmpty()) {
 
-                MongoCursor<Document> cursor = mongoCollection.find().iterator();
 
-                if (cursor.hasNext()) {
-                    System.out.println("Found Element " + cursor.next());
-                    while (cursor.hasNext()) {
-                        System.out.println("In while Cursoring ...");
-                        System.out.println("Found Element " + cursor.next());
-                        Document document = cursor.next();
+                while (cursor.hasNext()) {
 
-                        String thisUsername = document.getString("username");
-                        if (thisUsername.equals(username)) {
+                    Document document = cursor.next();
+                    System.out.println("Username --> " + document.getString("username") + "  Password --> " + document.getString("password"));
 
-                            if (password.equals(document.getString("password"))) {
-                                System.out.println("Successfully Logged In ...");
-                                //dialogDisplay(stackPane, "Successfully Logged In ...");
-                                cursor.close();
-                                // Go To Admin Panel DashBoard ... .. .
+                    if (document.getString("username").equals(username)) {
 
-                                // Exit the Current Stage and Go to the dashboard Stage ...
-                                Window window =   ((Node)(event.getSource())).getScene().getWindow();
-                                if (window instanceof Stage){
-                                    ((Stage) window).close();
-                                }
+                        if (document.getString("password").equals(password)) {
 
+                            System.out.println("Successfully Logged In ...");
+                            //dialogDisplay(stackPane, "Successfully Logged In ...");
 
+                            // Go To Admin Panel DashBoard ... .. .
 
-                                Parent root = FXMLLoader.load(getClass().getResource("../views/adminDashboard.fxml"));
-                                newStage.initStyle(StageStyle.UNDECORATED);
-                                newStage.setScene(new Scene(root, 1150, 768));
-                                newStage.show();
-
-
-
-                                break;
-                            } else {
-                                dialogDisplay(stackPane, "Wrong Password Entered ...");
-                                continue;
+                            // Exit the Current Stage and Go to the dashboard Stage ...
+                            Window window = ((Node) (event.getSource())).getScene().getWindow();
+                            if (window instanceof Stage) {
+                                ((Stage) window).close();
                             }
 
+                            Parent root = FXMLLoader.load(getClass().getResource("../views/adminDashboard.fxml"));
+                            newStage.initStyle(StageStyle.UNDECORATED);
+
+                            newStage.setScene(new Scene(root, 1150, 768));
+                            newStage.show();
+
+                            break;
+
+                        } else {
+                            //password wrong
+                            dialogDisplay(stackPane, "Password Wrong ...");
+                            break;
                         }
 
-                        if (!cursor.hasNext())
-                            dialogDisplay(stackPane,"User Not Present In Database ...");
-
+                    } else {
+                        if (!cursor.hasNext()) {
+                            dialogDisplay(stackPane, "User Not Present In Database ...");
+                            break;
+                        } else
+                            continue;
                     }
 
+
                 }
+
 
             } else {
                 dialogDisplay(stackPane, "Please fill Password ...");

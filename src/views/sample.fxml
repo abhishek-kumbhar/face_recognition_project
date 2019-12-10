@@ -58,16 +58,16 @@
                   </Label>
                </children>
             </VBox>
-            <StackPane fx:id="stackPane" layoutX="416.0" layoutY="-10.0" prefHeight="610.0" prefWidth="380.0" stylesheets="@../sample/stylesheet.css">
+            <StackPane fx:id="stackPane" layoutX="400.0" layoutY="-10.0" prefHeight="610.0" prefWidth="410.0" stylesheets="@../sample/stylesheet.css">
                <children>
-                  <Pane fx:id="contentLoader" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="380.0" style="-fx-background-color: transparent;" stylesheets="@../sample/stylesheet.css">
+                  <Pane fx:id="contentLoader" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="400.0" style="-fx-background-color: transparent;" stylesheets="@../sample/stylesheet.css">
                      <children>
-                        <Label layoutX="40.0" layoutY="83.0" text="Welcome Back ,">
+                        <Label layoutX="46.0" layoutY="83.0" text="Welcome Back ,">
                            <font>
                               <Font name="Impact" size="28.0" />
                            </font>
                         </Label>
-                        <Label layoutX="40.0" layoutY="117.0" text="Log in to continue" textFill="#0000008c">
+                        <Label layoutX="46.0" layoutY="117.0" text="Log in to continue" textFill="#0000008c">
                            <font>
                               <Font name="PT Sans Bold" size="18.0" />
                            </font>
@@ -75,17 +75,17 @@
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </opaqueInsets>
                         </Label>
-                        <JFXTextField fx:id="usernameLoginPage" focusColor="#ff6b6b" labelFloat="true" layoutX="38.0" layoutY="203.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Username" unFocusColor="#a1a1a18c">
+                        <JFXTextField fx:id="usernameLoginPage" focusColor="#ff6b6b" labelFloat="true" layoutX="44.0" layoutY="203.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Username" unFocusColor="#a1a1a18c">
                            <font>
                               <Font name="PT Sans Bold" size="16.0" />
                            </font>
                         </JFXTextField>
-                        <JFXPasswordField fx:id="passwordLoginPage" focusColor="#ff6b6b" labelFloat="true" layoutX="38.0" layoutY="261.0" prefHeight="35.0" prefWidth="300.0" promptText="Password" unFocusColor="#a3a3a38c">
+                        <JFXPasswordField fx:id="passwordLoginPage" focusColor="#ff6b6b" labelFloat="true" layoutX="44.0" layoutY="261.0" prefHeight="35.0" prefWidth="300.0" promptText="Password" unFocusColor="#a3a3a38c">
                            <font>
                               <Font name="PT Sans Bold" size="16.0" />
                            </font>
                         </JFXPasswordField>
-                        <Label layoutX="200.0" layoutY="332.0" styleClass="forgteBtn" stylesheets="@../sample/stylesheet.css" text="Forget Password?" textFill="#0000008c">
+                        <Label layoutX="206.0" layoutY="332.0" styleClass="forgteBtn" stylesheets="@../sample/stylesheet.css" text="Forget Password?" textFill="#0000008c">
                            <font>
                               <Font name="PT Sans Bold" size="16.0" />
                            </font>
@@ -93,12 +93,12 @@
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </opaqueInsets>
                         </Label>
-                        <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="40.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loginBtnPressed" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Log In" textFill="WHITE">
+                        <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="46.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loginBtnPressed" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Log In" textFill="WHITE">
                            <font>
                               <Font name="PT Sans Bold" size="13.0" />
                            </font>
                         </JFXButton>
-                        <Label layoutX="125.0" layoutY="451.0" styleClass="forgteBtn" stylesheets="@../sample/stylesheet.css" text="New User?" textFill="#0000008c">
+                        <Label layoutX="131.0" layoutY="451.0" styleClass="forgteBtn" stylesheets="@../sample/stylesheet.css" text="New User?" textFill="#0000008c">
                            <font>
                               <Font name="PT Sans Bold" size="16.0" />
                            </font>
@@ -106,7 +106,7 @@
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </opaqueInsets>
                         </Label>
-                        <Label fx:id="signup" layoutX="204.0" layoutY="451.0" onMouseClicked="#newSignupPage" styleClass="signup" stylesheets="@../sample/stylesheet.css" text="Sign up" textFill="#0000008c">
+                        <Label fx:id="signup" layoutX="210.0" layoutY="451.0" onMouseClicked="#newSignupPage" styleClass="signup" stylesheets="@../sample/stylesheet.css" text="Sign up" textFill="#0000008c">
                            <font>
                               <Font name="PT Sans Bold" size="16.0" />
                            </font>
@@ -114,7 +114,7 @@
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </opaqueInsets>
                         </Label>
-                        <FontAwesomeIconView fx:id="closeBtn" fill="#ff6b6b" glyphName="CLOSE" layoutX="357.0" layoutY="30.0" onMouseClicked="#closeApp" size="25" stroke="WHITE" styleClass="closeBtn" />
+                        <FontAwesomeIconView fx:id="closeBtn" fill="#ff6b6b" glyphName="CLOSE" layoutX="366.0" layoutY="34.0" onMouseClicked="#closeApp" size="30" stroke="WHITE" styleClass="closeBtn" />
                      </children>
                   </Pane>
                </children>

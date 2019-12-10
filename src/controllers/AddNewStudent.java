@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -127,7 +128,7 @@ public class AddNewStudent {
     @FXML
     void backBtnPressed(MouseEvent event) throws IOException {
         AnchorPane fxml = FXMLLoader.load(getClass().getResource("../views/StudentDetails.fxml"));
-        adminOperationsArea.getChildren().removeAll();
+//        adminOperationsArea.getChildren().removeAll();
         adminOperationsArea.getChildren().setAll(fxml);
     }
 

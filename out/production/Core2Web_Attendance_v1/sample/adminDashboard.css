@@ -23,11 +23,11 @@
 }
 
 .studentDetailsIcons{
-    -fx-fill:#FFFFF  ;
+    -fx-text-fill:#FFFFFF  ;
 }
 
 .studentDetailsIcons:hover{
-    -fx-fill:#F2338A  ;
+    -fx-text-fill:#F2338A  ;
 }
 
 .Btn:hover{

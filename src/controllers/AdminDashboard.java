@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.fxml.FXML;
@@ -22,7 +23,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
-import sample.Main;
 
 public class AdminDashboard {
 
@@ -117,6 +117,7 @@ public class AdminDashboard {
 
         Parent root = FXMLLoader.load(getClass().getResource("../views/adminDashboard.fxml"));
         newStage.initStyle(StageStyle.UNDECORATED);
+
         newStage.setScene(new Scene(root, 1150, 768));
         newStage.show();
     }
@@ -145,6 +146,7 @@ public class AdminDashboard {
         assert tableView != null : "fx:id=\"tableView\" was not injected: check your FXML file 'adminDashboard.fxml'.";
         assert adminOperationsArea != null : "fx:id=\"adminOperationsArea\" was not injected: check your FXML file 'adminDashboard.fxml'.";
         assert adminCloseBtn != null : "fx:id=\"adminCloseBtn\" was not injected: check your FXML file 'adminDashboard.fxml'.";
+
 
 
     }
