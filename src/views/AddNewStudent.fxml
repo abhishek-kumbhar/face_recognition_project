@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="adminOperationsArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddNewStudent">
@@ -72,13 +72,11 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="690.0">
                            <children>
-                              <Line endX="50.0" endY="0.7929084897041321" startX="-100.0" stroke="#ff6b6b" />
                               <Label alignment="CENTER" contentDisplay="CENTER" text="Contact details:" textFill="#ff6b6b">
                                  <font>
                                     <Font name="Verdana Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Line endX="297.29290771484375" endY="7.748603820800781E-7" startX="-100.0" stroke="#ff6b6b" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="689.0">
@@ -106,27 +104,13 @@
                               </JFXTextField>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="689.0">
-                           <children>
-                              <JFXTextField fx:id="guardianNumber" focusColor="#ff6b6b" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="Guardian no." unFocusColor="#a1a1a18c">
-                                 <font>
-                                    <Font name="Verdana Bold" size="12.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets right="30.0" />
-                                 </HBox.margin>
-                              </JFXTextField>
-                           </children>
-                        </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="690.0">
                            <children>
-                              <Line endX="50.0" startX="-100.0" stroke="#ff6b6b" />
                               <Label alignment="CENTER" contentDisplay="CENTER" text="Address:" textFill="#ff6b6b">
                                  <font>
                                     <Font name="Verdana Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Line endX="349.29290771484375" endY="1.0002906322479248" startX="-100.0" stroke="#ff6b6b" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="689.0">
@@ -176,13 +160,11 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="690.0">
                            <children>
-                              <Line endX="50.0" startX="-100.0" stroke="#ff6b6b" />
                               <Label alignment="CENTER" contentDisplay="CENTER" text="College Details:" textFill="#ff6b6b">
                                  <font>
                                     <Font name="Verdana Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Line endX="300.29290771484375" endY="1.7928931713104248" startX="-100.0" stroke="#ff6b6b" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="690.0">
@@ -212,66 +194,49 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="690.0">
                            <children>
-                              <CheckBox fx:id="feCheckbox" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="FE">
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
+                              <JFXCheckBox fx:id="feCheckbox" checkedColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" text="FE">
                                  <font>
                                     <Font name="Verdana Bold" size="13.0" />
                                  </font>
-                              </CheckBox>
-                              <CheckBox fx:id="seCheckbox" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="SE">
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="seCheckbox" checkedColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" text="SE">
                                  <font>
                                     <Font name="Verdana Bold" size="13.0" />
                                  </font>
-                              </CheckBox>
-                              <CheckBox fx:id="teCheckbox" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="TE">
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="teCheckbox" checkedColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" text="TE">
                                  <font>
                                     <Font name="Verdana Bold" size="13.0" />
                                  </font>
-                              </CheckBox>
-                              <CheckBox fx:id="beCheckbox" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="BE">
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="beCheckbox" checkedColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" text="BE">
                                  <font>
                                     <Font name="Verdana Bold" size="13.0" />
                                  </font>
-                              </CheckBox>
+                              </JFXCheckBox>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="690.0">
                            <children>
-                              <Line endX="50.0" endY="0.5796952843666077" startX="-100.0" stroke="#ff6b6b" />
                               <Label alignment="CENTER" contentDisplay="CENTER" text="Reference By:" textFill="#ff6b6b">
                                  <font>
                                     <Font name="Verdana Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Line endX="314.29290771484375" endY="2.906918525695801E-4" startX="-100.0" stroke="#ff6b6b" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="690.0">
                            <children>
-                              <CheckBox fx:id="websiteCheckbox" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Through Website">
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
+                              <JFXCheckBox fx:id="websiteCheckbox" checkedColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" text="via Website">
                                  <font>
                                     <Font name="Verdana Bold" size="13.0" />
                                  </font>
-                              </CheckBox>
-                              <CheckBox fx:id="friendCheckbox" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Friend">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="friendCheckbox" checkedColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" text="via Friend">
                                  <font>
                                     <Font name="Verdana Bold" size="13.0" />
                                  </font>
-                              </CheckBox>
+                              </JFXCheckBox>
                               <JFXTextField fx:id="referalFriendName" focusColor="#ff6b6b" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="--&gt;Enter friend name" unFocusColor="#a1a1a18c">
                                  <font>
                                     <Font name="Verdana Bold" size="12.0" />
@@ -280,24 +245,30 @@
                                     <Insets right="40.0" />
                                  </HBox.margin>
                               </JFXTextField>
-                              <CheckBox fx:id="directCheckbox" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="DIRECT">
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
+                              <JFXCheckBox fx:id="directCheckbox" checkedColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" text="direct">
                                  <font>
                                     <Font name="Verdana Bold" size="13.0" />
                                  </font>
-                              </CheckBox>
+                              </JFXCheckBox>
                            </children>
                         </HBox>
-                        <JFXButton fx:id="addNewStudentBtn" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addNewStudentBtnPressed" prefHeight="59.0" prefWidth="300.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Add student" textFill="WHITE">
-                           <font>
-                              <Font name="PT Sans Bold" size="13.0" />
-                           </font>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="690.0">
+                           <children>
+                              <JFXComboBox fx:id="batchSelector" focusColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Select batch">
+                                 <HBox.margin>
+                                    <Insets right="220.0" />
+                                 </HBox.margin>
+                              </JFXComboBox>
+                              <JFXButton fx:id="addNewStudentBtn" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addNewStudentBtnPressed" prefHeight="59.0" prefWidth="300.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Add student" textFill="WHITE">
+                                 <font>
+                                    <Font name="PT Sans Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
                            <VBox.margin>
-                              <Insets top="20.0" />
+                              <Insets top="30.0" />
                            </VBox.margin>
-                        </JFXButton>
+                        </HBox>
                      </children>
                   </VBox>
                </children>

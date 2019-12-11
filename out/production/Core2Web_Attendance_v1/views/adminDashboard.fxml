@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -11,11 +12,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1150.0" styleClass="adminDashboard" stylesheets="@../sample/adminDashboard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminDashboard">
    <children>
@@ -110,11 +113,38 @@
                   <Font name="Verdana Bold" size="22.0" />
                </font>
             </Label>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="306.0">
+               <children>
+                  <JFXComboBox fx:id="batchSelector" focusColor="WHITE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Select Batch">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </JFXComboBox>
+               </children>
+            </HBox>
+            <JFXButton fx:id="startBtn" alignment="BASELINE_LEFT" graphicTextGap="20.0" onMouseClicked="#startBtnPressed" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Start attendence">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/_ionicons_svg_ios-play-circle.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
          </children>
       </VBox>
       <Pane fx:id="adminOperationsArea" layoutX="306.0" prefHeight="768.0" prefWidth="845.0" style="-fx-background-color: white;">
          <children>
-            <Pane layoutX="371.0" layoutY="57.0" prefHeight="186.0" prefWidth="426.0" style="-fx-background-color: #FF6B6B;" styleClass="raisedBox" stylesheets="@../sample/adminDashboard.css">
+            <Pane layoutX="382.0" layoutY="57.0" prefHeight="186.0" prefWidth="426.0" style="-fx-background-color: #FF6B6B;" styleClass="raisedBox" stylesheets="@../sample/adminDashboard.css">
                <children>
                   <Label layoutX="160.0" layoutY="13.0" styleClass="systemNotification" stylesheets="@../sample/adminDashboard.css" text="System Notifications" textFill="WHITE">
                      <font>
@@ -236,7 +266,7 @@
                   <Font name="Verdana Bold" size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="34.0" layoutY="412.0" prefHeight="329.0" prefWidth="771.0" styleClass="tableView" stylesheets="@../sample/adminDashboard.css">
+            <TableView fx:id="tableView" layoutX="37.0" layoutY="425.0" prefHeight="329.0" prefWidth="771.0" styleClass="tableView" stylesheets="@../sample/adminDashboard.css">
               <columns>
                 <TableColumn editable="false" prefWidth="85.0" styleClass="studentID" text="Student ID" />
                 <TableColumn prefWidth="93.0" text="First name" />
@@ -250,6 +280,54 @@
                </columnResizePolicy>
             </TableView>
             <FontAwesomeIconView fx:id="adminCloseBtn" glyphName="CLOSE" layoutX="810.0" layoutY="29.0" onMouseClicked="#adminCloseBtnPressed" size="30" styleClass="closeBtn" />
+            <Line endX="687.0" endY="-2.0" layoutX="122.0" layoutY="293.0" startX="-82.0" startY="-2.0" stroke="#979797" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Line>
+            <Line endX="687.0" endY="2.0" layoutX="122.0" layoutY="394.0" startX="-80.0" startY="2.0" stroke="#979797" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Line>
+            <Line endX="-102.0" endY="63.0" layoutX="143.0" layoutY="332.0" startX="-102.0" startY="-40.0" stroke="#979797" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Line>
+            <Line endX="-102.0" endY="63.0" layoutX="910.0" layoutY="332.0" startX="-102.0" startY="-40.0" stroke="#979797" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Line>
+            <Label layoutX="60.0" layoutY="309.0" text="PRESENT">
+               <font>
+                  <Font name="Verdana Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="71.0" layoutY="352.0" text="ABSENT">
+               <font>
+                  <Font name="Verdana Bold" size="15.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="35.0" prefWidth="200.0" />
+            <Text fill="WHITE" layoutX="304.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="34.92675878293812">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Text>
+            <Line endX="-102.0" endY="63.0" layoutX="769.0" layoutY="332.0" startX="-102.0" startY="-40.0" stroke="#979797" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Line>
+            <Line endX="-110.0" endY="1.5" layoutX="779.0" layoutY="342.0" startX="28.0" startY="1.5" stroke="#979797" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Line>
+            <Circle fx:id="presentCircle" fill="#1fff3a" layoutX="690.0" layoutY="319.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="absentCircle" fill="#ff1f1f" layoutX="690.0" layoutY="371.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </children>

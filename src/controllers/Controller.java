@@ -185,6 +185,7 @@ public class Controller {
             dialogDisplay(stackPane, "Please fill username ...");
         }
 
+        cursor.close();
 
     }
 

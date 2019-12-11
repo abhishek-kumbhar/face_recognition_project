@@ -4,12 +4,15 @@ package controllers; /**
 
 import com.jfoenix.controls.JFXButton;
 
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -20,9 +23,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import javafx.util.Duration;
 
 public class AdminDashboard {
 
@@ -48,6 +54,9 @@ public class AdminDashboard {
     @FXML // fx:id="attendanceBookBtn"
     private JFXButton attendanceBookBtn; // Value injected by FXMLLoader
 
+    @FXML // fx:id="startBtn"
+    private JFXButton startBtn; // Value injected by FXMLLoader
+
     @FXML // fx:id="adminDetailsBtn"
     private JFXButton adminDetailsBtn; // Value injected by FXMLLoader
 
@@ -62,6 +71,14 @@ public class AdminDashboard {
 
     @FXML // fx:id="javaLectureCount"
     private Label javaLectureCount; // Value injected by FXMLLoader
+
+    @FXML // fx:id="presentCircle"
+    private Circle presentCircle; // Value injected by FXMLLoader
+
+    @FXML // fx:id="absentCircle"
+    private Circle absentCircle; // Value injected by FXMLLoader
+
+
 
     @FXML // fx:id="pythonWeekendLectureCount"
     private Label pythonWeekendLectureCount; // Value injected by FXMLLoader
@@ -98,6 +115,38 @@ public class AdminDashboard {
         adminOperationsArea.getChildren().removeAll();
         adminOperationsArea.getChildren().setAll(fxml);
     }
+
+    @FXML
+    void startBtnPressed(MouseEvent event) throws InterruptedException {
+
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.05), evt -> presentCircle.setVisible(false)),
+                new KeyFrame(Duration.seconds( 0.1), evt -> presentCircle.setVisible(true)));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        if (startBtn.getText().equals("Start attendence")){
+
+            timeline.play();
+
+
+
+
+            startBtn.setText("Stop attendence");
+
+
+        }else {
+
+
+            startBtn.setText("Start attendence");
+            timeline.stop();
+            
+
+        }
+
+    }
+
+
+
+
 
     @FXML
     void adminCloseBtnPressed(MouseEvent event) {
@@ -144,10 +193,15 @@ public class AdminDashboard {
         assert pythonWeekendLectureCount != null : "fx:id=\"pythonWeekendLectureCount\" was not injected: check your FXML file 'adminDashboard.fxml'.";
         assert pythonMorningLectureCount != null : "fx:id=\"pythonMorningLectureCount\" was not injected: check your FXML file 'adminDashboard.fxml'.";
         assert tableView != null : "fx:id=\"tableView\" was not injected: check your FXML file 'adminDashboard.fxml'.";
+        assert startBtn != null : "fx:id=\"startBtn\" was not injected: check your FXML file 'adminDashboard.fxml'.";
         assert adminOperationsArea != null : "fx:id=\"adminOperationsArea\" was not injected: check your FXML file 'adminDashboard.fxml'.";
         assert adminCloseBtn != null : "fx:id=\"adminCloseBtn\" was not injected: check your FXML file 'adminDashboard.fxml'.";
 
-
+        assert presentCircle != null : "fx:id=\"presentCircle\" was not injected: check your FXML file 'adminDashboard.fxml'.";
+        assert absentCircle != null : "fx:id=\"absentCircle\" was not injected: check your FXML file 'adminDashboard.fxml'.";
 
     }
+
+
 }
+
