@@ -21,7 +21,9 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -40,6 +42,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import org.bson.BSONObject;
 import org.bson.BsonDocument;
 import org.bson.Document;
 
@@ -47,6 +50,9 @@ import javax.print.Doc;
 
 
 public class Controller {
+
+    public static String adminFirstName = null;
+    public static String adminLastName = null;
 
     private MongoCollection<Document> mongoCollection = null;
     private MongoClient mongoClient = null;
@@ -126,15 +132,19 @@ public class Controller {
 
         MongoCursor<Document> cursor = mongoCollection.find().iterator();
 
+        //FindIterable<Document> fi = mongoCollection.find(Filters.eq("username", username));
+        //MongoCursor<Document> cursor = fi.iterator();
 
         if (!usernameLoginPage.getText().isEmpty()) {
 
             if (!passwordLoginPage.getText().isEmpty()) {
 
 
+
                 while (cursor.hasNext()) {
 
                     Document document = cursor.next();
+                    //System.out.println("Username --> " + document.getString("username") + "  Password --> " + document.getString("password"));
                     System.out.println("Username --> " + document.getString("username") + "  Password --> " + document.getString("password"));
 
                     if (document.getString("username").equals(username)) {
@@ -157,6 +167,9 @@ public class Controller {
 
                             newStage.setScene(new Scene(root, 1150, 768));
                             newStage.show();
+
+                            adminFirstName = document.getString("firstName");
+                            adminLastName = document.getString("lastName");
 
                             break;
 
@@ -185,7 +198,7 @@ public class Controller {
             dialogDisplay(stackPane, "Please fill username ...");
         }
 
-        cursor.close();
+        //cursor.close();
 
     }
 
@@ -212,8 +225,10 @@ public class Controller {
             MongoClientURI uri = new MongoClientURI(
                     "mongodb://ajagundeomkar:VViratkoli%40%4011@core2webattendence-shard-00-00-m7irc.mongodb.net:27017,core2webattendence-shard-00-01-m7irc.mongodb.net:27017,core2webattendence-shard-00-02-m7irc.mongodb.net:27017/test?ssl=true&replicaSet=Core2WebAttendence-shard-0&authSource=admin&retryWrites=true&w=majority");
 
+
             mongoClient = new MongoClient(uri);
             MongoDatabase database = mongoClient.getDatabase("core2webAttendenceApplication");
+
             mongoCollection = database.getCollection("admin_details");
             System.out.println("yes mongoCollection not null");
         } catch (MongoException e) {

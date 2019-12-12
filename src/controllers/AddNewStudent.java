@@ -17,7 +17,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
 import java.util.ResourceBundle;
+import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,6 +50,7 @@ public class AddNewStudent {
     private MongoCollection<Document> mongoCollection = null;
     private MongoClient mongoClient = null;
     private int studentID = 1;
+    public static int totalStudentCount = 1;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -183,6 +188,10 @@ public class AddNewStudent {
                                     Document identityDocument = new Document("firstName", firstName.getText());
                                     identityDocument.append("middleName", middleName.getText());
                                     identityDocument.append("lastName", lastName.getText());
+                                    identityDocument.append("dob",dob.getValue().toString());
+                                    identityDocument.append("age",calculateExactAge(dob.getValue().toString()));
+
+                                    System.out.println(dob.getValue() + " " + dob.getValue().toString());
 
                                     Document contactInfoDocument = new Document("primaryNumber", primaryNumber.getText());
                                     contactInfoDocument.append("whatsappNumber", whatsappNumber.getText());
@@ -197,13 +206,13 @@ public class AddNewStudent {
                                     Document collegeDetails = new Document("collegeName", collegeName.getText());
                                     collegeDetails.append("branch", branch.getText());
                                     if (feCheckbox.isSelected())
-                                        collegeDetails.append("FE", true);
+                                        collegeDetails.append("pursuingYear", "FE");
                                     else if (seCheckbox.isSelected())
-                                        collegeDetails.append("SE", true);
+                                        collegeDetails.append("pursuingYear", "SE");
                                     else if (teCheckbox.isSelected())
-                                        collegeDetails.append("TE", true);
+                                        collegeDetails.append("pursuingYear", "TE");
                                     else
-                                        collegeDetails.append("BE", true);
+                                        collegeDetails.append("pursuingYear", "BE");
 
 
                                     Document document = new Document("identity", identityDocument);
@@ -212,18 +221,20 @@ public class AddNewStudent {
                                     document.append("address_details",addressDetails);
 
                                     if (websiteCheckbox.isSelected())
-                                        document.append("byWebsite", true);
+                                        document.append("reference", "c2w-website");
                                     else if (friendCheckbox.isSelected())
-                                        document.append("byFriend", referalFriendName.getText());
+                                        document.append("reference", referalFriendName.getText());
                                     else
-                                        document.append("byDirect", true);
+                                        document.append("reference", "direct");
 
                                     document.append("studentID",batchSelector.getValue() + "-"+ studentID);
+                                    document.append("entryAddedBy",Controller.adminFirstName + " " + Controller.adminLastName);
 
                                     mongoCollection.insertOne(document);
 
                                     dialogDisplay(stackPane, "Student has been added Successfully ...");
                                     studentID++;
+                                    totalStudentCount++;
 
 
                                 } else {
@@ -515,6 +526,20 @@ public class AddNewStudent {
             contentLoader.setEffect(null);
         });
         contentLoader.setEffect(blur);
+    }
+
+    private String calculateExactAge(String dob){
+
+        LocalDate today = LocalDate.now();                          //Today's date
+        StringTokenizer st = new StringTokenizer(dob,"-");
+        String year = st.nextToken();
+        String month = st.nextToken();
+        String day = st.nextToken();
+
+        LocalDate birthday = LocalDate.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));  //Birth date
+        Period p = Period.between(birthday, today);
+
+        return p.getYears() + " yrs " + p.getMonths() + " months " + p.getDays() + " days ";
     }
 
 }

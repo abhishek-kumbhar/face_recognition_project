@@ -52,12 +52,20 @@ public class StudentDetails {
     }
 
     @FXML
-    void updateStudentBtnClicked(MouseEvent event) {
+    void updateStudentBtnClicked(MouseEvent event) throws IOException {
+
+        AnchorPane fxml = FXMLLoader.load(getClass().getResource("../views/UpdateStudent.fxml"));
+        adminOperationsArea.getChildren().removeAll();
+        adminOperationsArea.getChildren().setAll(fxml);
 
     }
 
     @FXML
-    void viewStudentBtnClicked(MouseEvent event) {
+    void viewStudentBtnClicked(MouseEvent event) throws IOException {
+
+        AnchorPane fxml = FXMLLoader.load(getClass().getResource("../views/ViewStudents.fxml"));
+        adminOperationsArea.getChildren().removeAll();
+        adminOperationsArea.getChildren().setAll(fxml);
 
     }
 
