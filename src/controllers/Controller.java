@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -42,6 +43,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import javafx.util.Duration;
 import org.bson.BSONObject;
 import org.bson.BsonDocument;
 import org.bson.Document;
@@ -156,6 +158,8 @@ public class Controller {
 
                             // Go To Admin Panel DashBoard ... .. .
 
+                            
+
                             // Exit the Current Stage and Go to the dashboard Stage ...
                             Window window = ((Node) (event.getSource())).getScene().getWindow();
                             if (window instanceof Stage) {
@@ -261,6 +265,15 @@ public class Controller {
             contentLoader.setEffect(null);
         });
         contentLoader.setEffect(blur);
+    }
+
+    private void screenTransitionAnimation(){
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setNode(parent);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.play();
     }
 
 }

@@ -47,7 +47,11 @@ public class StudentDetails {
     }
 
     @FXML
-    void deleteStudentBtnClicked(MouseEvent event) {
+    void deleteStudentBtnClicked(MouseEvent event) throws IOException {
+
+        AnchorPane fxml = FXMLLoader.load(getClass().getResource("../views/DeleteStudent.fxml"));
+        adminOperationsArea.getChildren().removeAll();
+        adminOperationsArea.getChildren().setAll(fxml);
 
     }
 

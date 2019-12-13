@@ -24,7 +24,7 @@
 <AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1150.0" styleClass="adminDashboard" stylesheets="@../sample/adminDashboard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminDashboard">
    <children>
       <StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="845.0" />
-      <VBox prefHeight="768.0" prefWidth="306.0" styleClass="leftPanel" stylesheets="@../sample/stylesheet.css">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="306.0" styleClass="leftPanel" stylesheets="@../sample/stylesheet.css">
          <children>
             <ImageView fitHeight="150.0" fitWidth="306.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -114,17 +114,20 @@
                <font>
                   <Font name="Verdana Bold" size="22.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Label>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="306.0">
                <children>
-                  <JFXComboBox fx:id="batchSelector" focusColor="WHITE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Select Batch">
+                  <JFXComboBox id="comboBox1" fx:id="batchSelector" focusColor="WHITE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Select Batch" stylesheets="@../sample/adminDashboard.css">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </JFXComboBox>
                </children>
             </HBox>
-            <JFXButton fx:id="startBtn" alignment="BASELINE_LEFT" graphicTextGap="20.0" onMouseClicked="#startBtnPressed" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Start attendence">
+            <JFXButton fx:id="startBtn" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="20.0" onMouseClicked="#startBtnPressed" prefHeight="60.0" prefWidth="306.0" ripplerFill="#b24ee8" styleClass="button1" stylesheets="@../sample/adminDashboard.css" text="Start attendence">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -142,7 +145,22 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </JFXButton>
+            <JFXButton fx:id="logoutBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#logoutBtn" prefHeight="50.0" prefWidth="60.0" styleClass="logout" stylesheets="@../sample/adminDashboard.css" text="Logout">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/_ionicons_svg_ios-exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
          </children>
+         <padding>
+            <Insets top="-50.0" />
+         </padding>
       </VBox>
       <Pane fx:id="adminOperationsArea" layoutX="306.0" prefHeight="768.0" prefWidth="845.0" style="-fx-background-color: white;" stylesheets="@../sample/adminDashboard.css">
          <children>
@@ -312,7 +330,6 @@
                   <Font name="Verdana Bold" size="15.0" />
                </font>
             </Label>
-            <HBox prefHeight="35.0" prefWidth="200.0" />
             <Text fill="WHITE" layoutX="304.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="34.92675878293812">
                <font>
                   <Font name="Verdana Bold" size="14.0" />

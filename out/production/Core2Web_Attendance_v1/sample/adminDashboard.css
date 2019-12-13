@@ -91,7 +91,25 @@
 
 .button1:pressed {
     -fx-background-color: #E5E5E5;
-    -fx-text-fill: #364FCD;
+    -fx-text-fill: #b24ee8;
+}
+
+.logout {
+    -fx-background-color: #E5E5E5;
+    -fx-text-fill: #383838;
+    -fx-text-alignment: left;
+    -fx-background-radius:18px;
+}
+
+.logout:hover {
+    -fx-background-color: #E5E5E5;
+    -fx-text-fill: #FF6B6B;
+    -fx-text-style:Bold;
+}
+
+.logout:pressed {
+    -fx-background-color: #E5E5E5;
+    -fx-text-fill: #b24ee8;
 }
 
 .button:focused {
@@ -152,6 +170,36 @@
     -fx-font-size:12px;
 
 
+}
+
+
+.filter{
+
+    -fx-prompt-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFF;
+}
+
+#comboBox .list-cell
+ {
+    -fx-font-family: Verdana;
+    -fx-font-size: 12px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-background-color:#383838;
+ }
+#comboBox1 .list-cell
+ {
+    -fx-font-family: Verdana;
+    -fx-font-size: 12px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-background-color:#FF6B6B;
+ }
+.filterText{
+
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: #FFF;
 }
 
 

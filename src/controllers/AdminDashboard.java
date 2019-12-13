@@ -39,6 +39,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javafx.util.Duration;
+import sample.Main;
 
 import javax.swing.text.html.ImageView;
 
@@ -77,6 +78,9 @@ public class AdminDashboard {
     @FXML // fx:id="batchSelector"
     private JFXComboBox<String> batchSelector; // Value injected by FXMLLoader
 
+    @FXML // fx:id="logoutBtn"
+    private JFXButton logoutBtn; // Value injected by FXMLLoader
+
 
     @FXML // fx:id="stackPane"
     private StackPane stackPane; // Value injected by FXMLLoader
@@ -112,6 +116,26 @@ public class AdminDashboard {
 
     @FXML // fx:id="tableView"
     private TableView<?> tableView; // Value injected by FXMLLoader
+
+    @FXML
+    void logoutBtn(MouseEvent event) throws IOException {
+
+        Stage newStage = new Stage();
+
+        Window window = ((Node) (event.getSource())).getScene().getWindow();
+        if (window instanceof Stage) {
+            ((Stage) window).close();
+        }
+
+        Parent root = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
+        newStage.initStyle(StageStyle.UNDECORATED);
+
+
+        newStage.setScene(new Scene(root, 800, 600));
+        newStage.show();
+
+
+    }
 
     @FXML
     void adminDetailsBtnClicked(MouseEvent event) throws IOException {
@@ -234,6 +258,8 @@ public class AdminDashboard {
         assert tableView != null : "fx:id=\"tableView\" was not injected: check your FXML file 'adminDashboard.fxml'.";
         assert startBtn != null : "fx:id=\"startBtn\" was not injected: check your FXML file 'adminDashboard.fxml'.";
         assert stackPane != null : "fx:id=\"stackPane\" was not injected: check your FXML file 'adminDashboard.fxml'.";
+        assert logoutBtn != null : "fx:id=\"logoutBtn\" was not injected: check your FXML file 'adminDashboard.fxml'.";
+
 
         assert adminOperationsArea != null : "fx:id=\"adminOperationsArea\" was not injected: check your FXML file 'adminDashboard.fxml'.";
         assert adminCloseBtn != null : "fx:id=\"adminCloseBtn\" was not injected: check your FXML file 'adminDashboard.fxml'.";
@@ -252,6 +278,9 @@ public class AdminDashboard {
         ppaLectureCount.setText(String.valueOf(ppaLecCount));
         pythonMorningLectureCount.setText(String.valueOf(pythonMornLecturesCount));
         pythonWeekendLectureCount.setText(String.valueOf(pythonWeekLecturesCount));
+
+
+        adminNameLabel.setText(Controller.adminFirstName + " " + Controller.adminLastName);
 
 
     }
