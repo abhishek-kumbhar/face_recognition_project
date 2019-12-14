@@ -156,21 +156,20 @@ public class AdminDashboard {
     @FXML
     void attendanceBookBtnPressed(MouseEvent event) throws IOException {
 
-        Pane fxml = FXMLLoader.load(getClass().getResource("../views/AttendanceBookDetails.fxml"));
+        Pane fxml = FXMLLoader.load(getClass().getResource("../views/CaptureImagePage.fxml"));
         adminOperationsArea.getChildren().removeAll();
         adminOperationsArea.getChildren().setAll(fxml);
     }
 
     @FXML
-    void startBtnPressed(MouseEvent event) throws InterruptedException {
+    void startBtnPressed(MouseEvent event) throws  IOException {
 
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.05), evt -> presentCircle.setVisible(false)),
-                new KeyFrame(Duration.seconds(0.1), evt -> presentCircle.setVisible(true)));
-        timeline.setCycleCount(Animation.INDEFINITE);
+
         if (startBtn.getText().equals("Start attendence")) {
 
-            timeline.play();
+            String command = "python3 controllers/take_images.py";
+            Process p = Runtime.getRuntime().exec(command + "1" );
 
             if (batchSelector.getValue() != ""){
                 startBtn.setText("Stop attendence");
@@ -186,7 +185,7 @@ public class AdminDashboard {
 
 
             startBtn.setText("Start attendence");
-            timeline.stop();
+
 
 
            /* if (batchSelector.getValue().equals("C2W-JAVA-8"))
