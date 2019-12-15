@@ -71,6 +71,7 @@ public class CaptureImagePage {
 
         String command = "python3 scripts/capture_images.py";
         Process p = Runtime.getRuntime().exec(command + " omkar" );
+
         System.out.println("reached yake image pressed button");
 
     }
