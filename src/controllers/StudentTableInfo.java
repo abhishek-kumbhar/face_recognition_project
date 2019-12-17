@@ -33,7 +33,7 @@ public class StudentTableInfo extends RecursiveTreeObject<StudentTableInfo> {
     StringProperty addedBy;
 
     public StudentTableInfo(String studentID, String firstName, String middleName,
-                            String lastName, String dob,String age, String primaryNumber,
+                            String lastName, String dob, String age, String primaryNumber,
                             String email, String whatsappNumber, String flatNumber,
                             String road, String area, String city, String pincode,
                             String collegeName, String branch, String pursuingYear,

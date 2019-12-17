@@ -184,7 +184,7 @@ public class AddNewStudent {
                                         referalFriendName.requestFocus();
                                     }
 
-                                    //Insert Data
+                                     //Insert Data
                                     Document identityDocument = new Document("firstName", firstName.getText());
                                     identityDocument.append("middleName", middleName.getText());
                                     identityDocument.append("lastName", lastName.getText());
@@ -539,7 +539,8 @@ public class AddNewStudent {
         LocalDate birthday = LocalDate.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));  //Birth date
         Period p = Period.between(birthday, today);
 
-        return p.getYears() + " yrs " + p.getMonths() + " months " + p.getDays() + " days ";
+        //return p.getYears() + " yrs " + p.getMonths() + " months " + p.getDays() + " days ";
+        return Integer.toString(p.getYears());
     }
 
 }

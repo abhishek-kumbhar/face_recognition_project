@@ -4,14 +4,9 @@
 
 package controllers;
 
-import com.github.sarxos.webcam.Webcam;
-import com.github.sarxos.webcam.WebcamPanel;
-import com.github.sarxos.webcam.WebcamResolution;
 import com.jfoenix.controls.JFXButton;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,9 +19,6 @@ import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
 
 
 public class CaptureImagePage {
@@ -71,37 +63,15 @@ public class CaptureImagePage {
 
     @FXML
     void openImageBtnPressed(MouseEvent event) {
-        Webcam webcam = Webcam.getDefault();
-        webcam.open();
 
-        try {
-            ImageIO.write(webcam.getImage(), "PNG", new File("C:\\Users\\Abhi\\Desktop\\dataSet\\newDemo.jpg"));
-        }catch(Exception e){}
     }
 
     @FXML
     void takeImageBtnPressed(MouseEvent event) throws IOException {
 
-
-
-
-        Webcam webcam = Webcam.getDefault();
-        webcam.setViewSize(WebcamResolution.VGA.getSize());
-
-        WebcamPanel panel = new WebcamPanel(webcam);
-        panel.setFPSDisplayed(true);
-        panel.setDisplayDebugInfo(true);
-        panel.setImageSizeDisplayed(true);
-        panel.setMirrored(true);
-
-        JFrame window = new JFrame("Test webcam panel");
-        window.add(panel);
-        window.setResizable(true);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.pack();
-        window.setVisible(true);
-
-        System.out.println("Done");
+        String command = "python3 scripts/capture_images.py";
+        Process p = Runtime.getRuntime().exec(command + " omkar" );
+        System.out.println("reached yake image pressed button");
 
     }
 
