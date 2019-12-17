@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignupPageController">
+   <children>
+      <StackPane fx:id="stackPane" layoutX="-7.0" prefHeight="600.0" prefWidth="409.0">
+         <children>
+            <Pane fx:id="contentLoader" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="403.0" style="-fx-background-color: transparent;" stylesheets="@../sample/stylesheet.css">
+               <children>
+                  <Label layoutX="38.0" layoutY="55.0" text="Hello New Admin, ">
+                     <font>
+                        <Font name="Impact" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="93.0" text="Please enter the details below" textFill="#0000008c">
+                     <font>
+                        <Font name="PT Sans Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <JFXTextField fx:id="firstName" focusColor="#ff6b6b" labelFloat="true" layoutX="36.0" layoutY="138.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Fisrt Name" unFocusColor="#a1a1a18c">
+                     <font>
+                        <Font name="PT Sans Bold" size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXPasswordField fx:id="password" focusColor="#ff6b6b" labelFloat="true" layoutX="38.0" layoutY="377.0" prefHeight="30.0" prefWidth="300.0" promptText="Password" unFocusColor="#a3a3a38c">
+                     <font>
+                        <Font name="PT Sans Bold" size="15.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXButton fx:id="signupBtn" buttonType="RAISED" layoutX="38.0" layoutY="524.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#signupBtnPressed" prefHeight="50.0" prefWidth="300.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Sign Up Now" textFill="WHITE">
+                     <font>
+                        <Font name="PT Sans Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <FontAwesomeIconView fx:id="closeBtn" fill="#ff6b6b" glyphName="CLOSE" layoutX="362.0" layoutY="42.0" onMouseClicked="#closeApp" size="30" stroke="WHITE" styleClass="closeBtn" />
+                  <FontAwesomeIconView fx:id="backBtn" fill="#ff6b6b" glyphName="ARROW_LEFT" layoutX="9.0" layoutY="42.0" onMouseClicked="#backBtnPressed" size="30" stroke="WHITE" styleClass="closeBtn" />
+                  <JFXTextField fx:id="lastName" focusColor="#ff6b6b" labelFloat="true" layoutX="188.0" layoutY="138.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Last Name" unFocusColor="#a1a1a18c">
+                     <font>
+                        <Font name="PT Sans Bold" size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="email" focusColor="#ff6b6b" labelFloat="true" layoutX="36.0" layoutY="186.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Email" unFocusColor="#a1a1a18c">
+                     <font>
+                        <Font name="PT Sans Bold" size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXCheckBox fx:id="ppaCheckbox" checkedColor="#ff6b6b" layoutX="36.0" layoutY="482.0" text="PPA" />
+                  <JFXCheckBox fx:id="javaCheckbox" checkedColor="#ff6b6b" layoutX="144.0" layoutY="482.0" text="JAVA" />
+                  <JFXCheckBox fx:id="pythonCheckbox" checkedColor="#ff6b6b" layoutX="263.0" layoutY="482.0" text="PYTHON" />
+                  <JFXTextField fx:id="primaryPhoneNumber" focusColor="#ff6b6b" labelFloat="true" layoutX="36.0" layoutY="283.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Primary Phone Number" unFocusColor="#f2338a8c">
+                     <font>
+                        <Font name="PT Sans Bold" size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="whatsappNumber" focusColor="#ff6b6b" labelFloat="true" layoutX="36.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Whatsapp Number" unFocusColor="#f2338a8c">
+                     <font>
+                        <Font name="PT Sans Bold" size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXPasswordField fx:id="rePassword" focusColor="#ff6b6b" labelFloat="true" layoutX="38.0" layoutY="427.0" prefHeight="30.0" prefWidth="300.0" promptText="Re-Enter Password" unFocusColor="#a3a3a38c">
+                     <font>
+                        <Font name="PT Sans Bold" size="15.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXTextField fx:id="username" focusColor="#ff6b6b" labelFloat="true" layoutX="38.0" layoutY="233.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Username" unFocusColor="#a1a1a18c">
+                     <font>
+                        <Font name="PT Sans Bold" size="15.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </Pane>
+         </children></StackPane>
+   </children>
+</AnchorPane>

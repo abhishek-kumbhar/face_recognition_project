@@ -1,0 +1,256 @@
+
+
+.raisedBox{
+
+    -fx-background-radius:10px;
+}
+
+.tableView{
+
+    -fx-background-color:#FF6B6B;
+}
+
+.studentID{
+    -fx-background-color:white;
+}
+
+.Btn{
+
+    -fx-background-color:#FF6B6B ;
+    -fx-text-fill:#ffff;
+    -fx-background-radius:4px;
+
+}
+
+.studentDetailsIcons{
+    -fx-text-fill:#FFFFFF  ;
+}
+
+.studentDetailsIcons:hover{
+    -fx-text-fill:#F2338A  ;
+}
+.dialogBtn{
+
+    -fx-background-color:#FF6B6B ;
+    -fx-text-fill:#ffff;
+    -fx-background-radius:4px;
+
+}
+
+.dialogBtn:hover{
+
+    -fx-background-color:transparent;
+    -fx-text-fill: #FF6B6B;
+   /* -fx-border-color: #FF6B6B;
+    -fx-border-width: 2px;
+    -fx-boder-style:solid;
+    -fx-border-radius:4px;*/
+}
+.dialog{
+
+    -fx-background-color:white;
+    -fx-text-color:#F2338A;
+    -fx-border-color:#FF6B6B;
+    -fx-border-width:10px;
+    -fx-font-size:18;
+    -fx-font-weight:bold;
+    -fx-font-family:Verdana;
+}
+
+.Btn:hover{
+
+    -fx-background-color:transparent;
+    -fx-text-fill: #FF6B6B;
+    -fx-border-color: #FF6B6B;
+    -fx-border-width: 2px;
+    -fx-boder-style:solid;
+    -fx-border-radius:4px;
+}
+.closeBtn{
+
+    -fx-fill:#FF6B6B;
+}
+
+.closeBtn:hover{
+
+    -fx-fill:#F2338A  ;
+}
+
+.button1 {
+    -fx-background-color: #E5E5E5;
+    -fx-text-fill: #383838;
+    -fx-text-alignment: left;
+    -fx-background-radius:0px;
+}
+
+.button1:hover {
+    -fx-background-color: #E5E5E5;
+    -fx-text-fill: #FF6B6B;
+    -fx-text-style:Bold;
+}
+
+.button1:pressed {
+    -fx-background-color: #E5E5E5;
+    -fx-text-fill: #b24ee8;
+}
+
+.logout {
+    -fx-background-color: #E5E5E5;
+    -fx-text-fill: #383838;
+    -fx-text-alignment: left;
+    -fx-background-radius:18px;
+}
+
+.logout:hover {
+    -fx-background-color: #E5E5E5;
+    -fx-text-fill: #FF6B6B;
+    -fx-text-style:Bold;
+}
+
+.logout:pressed {
+    -fx-background-color: #E5E5E5;
+    -fx-text-fill: #b24ee8;
+}
+
+.button:focused {
+    -fx-background-color: #D9D9D9;
+    -fx-text-fill: #364FCD;
+}
+
+.button2 {
+    -fx-background-color: #0C39FF;
+    -fx-border-color: #FFF;
+    -fx-text-fill: #FFF;
+}
+
+.button2:hover {
+    -fx-background-color: #0C3988;
+    -fx-text-fill: #FFF;
+}
+
+.button2:pressed {
+    -fx-background-color: #0C3400;
+    -fx-text-fill: #FFF;
+
+}
+
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size: 10;
+    -fx-background-color: #FF6B6B;
+    -fx-font-size:12px;
+}
+
+.table-view .column-header .label {
+
+    -fx-cell-size: 20;
+    -fx-text-fill: white;
+    -fx-font-family:Verdana;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-font-size:12px;
+}
+
+.table-view .cell {
+    -fx-cell-size: 30;
+    -fx-alignment: center;
+    -fx-text-fill: #000000;
+    -fx-alignment: CENTER;
+    -fx-font-size:12px;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #FF6B6B;
+    -fx-font-size:12px;
+}
+.table-row-cell:nth-child(even) { -fx-background-color: cyan; }
+.table-row-cell:selected .text {
+    -fx-fill: #FF6B6B;
+    -fx-font-size:12px;
+
+
+}
+
+
+.filter{
+
+    -fx-prompt-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFF;
+}
+
+#comboBox .list-cell
+ {
+    -fx-font-family: Verdana;
+    -fx-font-size: 12px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-background-color:#383838;
+ }
+#comboBox1 .list-cell
+ {
+    -fx-font-family: Verdana;
+    -fx-font-size: 12px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-background-color:#FF6B6B;
+ }
+.filterText{
+
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: #FFF;
+}
+
+
+/* scroll bar starts here */
+
+/* The increment and decrement button CSS class of scrollbar */
+.table-view .increment-button, .table-view .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 2em;
+
+}
+
+/* The main scrollbar **track** CSS class  */
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: derive(#2D75E8, 80%);
+    -fx-background-radius: 2em;
+    -fx-border-radius: 2em;
+}
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: derive(#2D75E8, 90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+
+}
+
+/* chart properties */
+
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart-pie {
+    -fx-border-color: derive(-fx-pie-color, 1%);
+    -fx-border-width: 0px;
+}
+
+.data0.chart-pie {
+    -fx-pie-color: #364FCD;
+}
+
+.data1.chart-pie {
+    -fx-pie-color: #54AAF3;
+}
