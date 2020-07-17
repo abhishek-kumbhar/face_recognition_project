@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="adminOperationsArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.updateAdmin">
+    <children>
+        <StackPane fx:id="stackPane" layoutY="6.0" prefHeight="768.0" prefWidth="845.0">
+            <children>
+                <Pane fx:id="contentLoader" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="845.0" style="-fx-background-color: transparent;" stylesheets="@../sample/stylesheet.css">
+                    <children>
+                        <Label layoutX="78.0" layoutY="14.0" text="Hello Awesome Admin, ">
+                            <font>
+                                <Font name="Impact" size="28.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="80.0" layoutY="48.0" text="Please enter the details below" textFill="#0000008c">
+                            <font>
+                                <Font name="PT Sans Bold" size="18.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                            </opaqueInsets>
+                        </Label>
+                        <FontAwesomeIconView fx:id="closeBtn" fill="#ff6b6b" glyphName="CLOSE" layoutX="792.0" layoutY="31.0" onMouseClicked="#closeApp" size="30" stroke="WHITE" styleClass="closeBtn" />
+                        <FontAwesomeIconView fx:id="backBtn" fill="#ff6b6b" glyphName="ARROW_LEFT" layoutX="21.0" layoutY="31.0" onMouseClicked="#backBtnPressed" size="30" stroke="WHITE" styleClass="closeBtn" />
+                        <VBox alignment="CENTER" layoutX="78.0" layoutY="130.0" prefHeight="501.0" prefWidth="690.0">
+                            <children>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="689.0">
+                                    <children>
+                                        <JFXTextField fx:id="firstName" focusColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Fisrt name" unFocusColor="#a1a1a18c">
+                                            <font>
+                                                <Font name="Verdana Bold" size="16.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets />
+                                            </HBox.margin>
+                                        </JFXTextField>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="18.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="690.0">
+                           <children>
+                                        <JFXTextField fx:id="lastName" focusColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Last name" unFocusColor="#a1a1a18c">
+                                            <font>
+                                                <Font name="Verdana Bold" size="16.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets />
+                                            </HBox.margin>
+                                        </JFXTextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="18.0" />
+                           </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="690.0">
+                           <children>
+                              <JFXTextField fx:id="username" focusColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="User name" unFocusColor="#a1a1a18c">
+                                 <font>
+                                    <Font name="Verdana Bold" size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="18.0" />
+                           </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="690.0">
+                                    <children>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" text="Contact details:" textFill="#ff6b6b">
+                                            <font>
+                                                <Font name="Verdana Bold" size="12.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                           <VBox.margin>
+                              <Insets bottom="18.0" />
+                           </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="689.0">
+                                    <children>
+                                        <JFXTextField fx:id="primaryNumber" focusColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Primary mobile no." unFocusColor="#a1a1a18c">
+                                            <font>
+                                                <Font name="Verdana Bold" size="16.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets />
+                                            </HBox.margin>
+                                        </JFXTextField>
+                                    </children>
+                           <VBox.margin>
+                              <Insets bottom="18.0" />
+                           </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="689.0">
+                           <children>
+                                        <JFXTextField fx:id="whatsappNumber" focusColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Whatsapp mobile no." unFocusColor="#a1a1a18c">
+                                            <font>
+                                                <Font name="Verdana Bold" size="16.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets />
+                                            </HBox.margin>
+                                        </JFXTextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="18.0" />
+                           </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="690.0">
+                           <children>
+                                        <JFXTextField fx:id="email" focusColor="#ff6b6b" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" promptText="Email" unFocusColor="#a1a1a18c">
+                                            <font>
+                                                <Font name="Verdana Bold" size="16.0" />
+                                            </font>
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                                        </JFXTextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="18.0" />
+                           </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="690.0">
+                                    <VBox.margin>
+                                        <Insets bottom="18.0" />
+                                    </VBox.margin>
+                           <children>
+                              <JFXCheckBox fx:id="javaCheckbox" checkedColor="#ff6b6b" text="JAVA">
+                                 <HBox.margin>
+                                    <Insets left="-50.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="ppaCheckbox" checkedColor="#ff6b6b" text="PPA">
+                                 <HBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="pyCheckbox" checkedColor="#ff6b6b" text="PYTHON">
+                                 <font>
+                                    <Font name="Verdana Bold" size="14.0" />
+                                 </font>
+                              </JFXCheckBox>
+                           </children>
+                                </HBox>
+                                  <JFXButton fx:id="updateAdmin" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addNewStudentBtnPressed" prefHeight="59.0" prefWidth="300.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Update admin" textFill="WHITE">
+                                      <font>
+                                          <Font name="PT Sans Bold" size="13.0" />
+                                      </font>
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                                  </JFXButton>
+                            </children>
+                        </VBox>
+                        <JFXTextField fx:id="searchBar" layoutX="491.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="Enter filter text">
+                            <font>
+                                <Font name="Verdana Bold" size="12.0" />
+                            </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="filterSelector" layoutX="395.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="80.0" promptText="Filter by..." />
+                        <JFXButton fx:id="searchBtn" buttonType="RAISED" layoutX="395.0" layoutY="81.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#searchBtnPressed" prefHeight="30.0" prefWidth="248.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="search" textFill="WHITE">
+                            <font>
+                                <Font name="PT Sans Bold" size="13.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

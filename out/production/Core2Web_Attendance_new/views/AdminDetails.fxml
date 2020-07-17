@@ -1,17 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminDetails">
    <children>
-      <AnchorPane fx:id="adminOperationsArea" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="845.0">
+      <AnchorPane fx:id="adminOperationsArea" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="833.0" stylesheets="@../sample/adminDashboard.css">
          <children>
-            <Label fx:id="adminOperationsArea" layoutX="167.0" layoutY="371.0" text="On Admin Details Operations">
+            <StackPane fx:id="stackPane" prefHeight="778.0" prefWidth="843.0">
+               <children>
+                  <Pane prefHeight="400.0" prefWidth="500.0">
+                     <children>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0">
+                           <children>
+                              <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0">
+                                 <children>
+                                    <JFXButton fx:id="updateStudentBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#updateStudentBtnClicked" prefHeight="200.0" prefWidth="230.0" styleClass="BtnAdmin" stylesheets="@../sample/adminDashboard.css" text="Update">
+                                       <font>
+                                          <Font name="Verdana Bold" size="16.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" size="30" styleClass="studentDetailsIcons">
+                                             <effect>
+                                                <DropShadow />
+                                             </effect>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                    </JFXButton>
+                                    <JFXButton fx:id="deleteStudentBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deleteStudentBtnClicked" prefHeight="100.0" prefWidth="175.0" styleClass="BtnAdmin" text="Delete">
+                                       <font>
+                                          <Font name="Verdana Bold" size="16.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="TRASH" size="40" styleClass="studentDetailsIcons">
+                                             <effect>
+                                                <DropShadow />
+                                             </effect>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="200.0" top="200.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="15.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="199.0" prefWidth="500.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <HBox.margin>
+                                          <Insets bottom="50.0" left="400.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <JFXButton fx:id="viewStudentBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#viewStudentBtnClicked" prefHeight="200.0" prefWidth="230.0" styleClass="BtnAdmin" text="View">
+                                       <font>
+                                          <Font name="Verdana Bold" size="16.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIconView fill="WHITE" glyphName="EYE" size="100" styleClass="studentDetailsIcons">
+                                             <effect>
+                                                <DropShadow />
+                                             </effect>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets top="15.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </children>
+            </StackPane>
+            <Label layoutX="14.0" layoutY="14.0" text="Please Select One Option From Below">
                <font>
-                  <Font name="Verdana Bold" size="30.0" />
+                  <Font name="Impact" size="28.0" />
                </font>
             </Label>
          </children>

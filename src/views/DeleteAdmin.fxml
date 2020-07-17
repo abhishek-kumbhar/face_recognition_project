@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="adminOperationsArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.deleteAdmin">
+    <children>
+        <StackPane fx:id="stackPane" prefHeight="768.0" prefWidth="845.0">
+            <children>
+                <Pane fx:id="contentLoader" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="845.0" style="-fx-background-color: #383838;">
+                    <children>
+                        <JFXButton fx:id="searchBtn" buttonType="RAISED" layoutX="526.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#searchBtnPressed" prefHeight="40.0" prefWidth="150.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text=" Delete Student" textFill="WHITE">
+                            <font>
+                                <Font name="PT Sans Bold" size="13.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXTextField fx:id="searchBar" labelFloat="true" layoutX="360.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" promptText="Enter filter text" styleClass="filterText" stylesheets="@../sample/adminDashboard.css" unFocusColor="WHITE">
+                            <font>
+                                <Font name="Verdana Bold" size="12.0" />
+                            </font>
+                        </JFXTextField>
+                        <JFXComboBox id="comboBox" fx:id="filterSelector" labelFloat="true" layoutX="197.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" promptText="Filter by..." styleClass="filter" stylesheets="@../sample/adminDashboard.css" unFocusColor="WHITE" />
+                    </children>
+                    <StackPane.margin>
+                        <Insets top="-168.0" />
+                    </StackPane.margin>
+                    <effect>
+                        <DropShadow height="112.07" radius="56.295" width="115.11" />
+                    </effect>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

@@ -237,7 +237,7 @@
                                     <Font name="Verdana Bold" size="13.0" />
                                  </font>
                               </JFXCheckBox>
-                              <JFXTextField fx:id="referalFriendName" focusColor="#ff6b6b" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="--&gt;Enter friend name" unFocusColor="#a1a1a18c">
+                              <JFXTextField fx:id="referalFriendName" focusColor="#ff6b6b" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="--&gt; Enter friend name" unFocusColor="#a1a1a18c">
                                  <font>
                                     <Font name="Verdana Bold" size="12.0" />
                                  </font>

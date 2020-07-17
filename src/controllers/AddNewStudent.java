@@ -12,22 +12,8 @@ import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-
-import java.io.IOException;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.Period;
-import java.util.ResourceBundle;
-import java.util.StringTokenizer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BoxBlur;
@@ -36,12 +22,20 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import org.bson.Document;
-import sample.Main;
 
-import javax.print.Doc;
+import java.io.*;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.ResourceBundle;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AddNewStudent {
 
@@ -49,8 +43,18 @@ public class AddNewStudent {
     // once the connection is established by the call to {@connectToDatabase}
     private MongoCollection<Document> mongoCollection = null;
     private MongoClient mongoClient = null;
-    private int studentID = 1;
+    public static int studentID;
     public static int totalStudentCount = 1;
+    public static String finalStudId = null;
+    public static String selectedBatch = null;
+    public static String studentName = null;
+    public static String studentEmail = null;
+    public static String studentNumber = null;
+
+
+    //file handling for python code
+
+
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -149,8 +153,11 @@ public class AddNewStudent {
     @FXML // fx:id="addNewStudentBtn"
     private JFXButton addNewStudentBtn; // Value injected by FXMLLoader
 
+    public AddNewStudent() throws IOException {
+    }
+
     @FXML
-    void addNewStudentBtnPressed(MouseEvent event) {
+    void addNewStudentBtnPressed(MouseEvent event) throws IOException {
 
         DateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -191,7 +198,7 @@ public class AddNewStudent {
                                     identityDocument.append("dob",dob.getValue().toString());
                                     identityDocument.append("age",calculateExactAge(dob.getValue().toString()));
 
-                                    System.out.println(dob.getValue() + " " + dob.getValue().toString());
+                                    //System.out.println(dob.getValue() + " " + dob.getValue().toString());
 
                                     Document contactInfoDocument = new Document("primaryNumber", primaryNumber.getText());
                                     contactInfoDocument.append("whatsappNumber", whatsappNumber.getText());
@@ -227,13 +234,101 @@ public class AddNewStudent {
                                     else
                                         document.append("reference", "direct");
 
-                                    document.append("studentID",batchSelector.getValue() + "-"+ studentID);
+                                    //reading prev id given by c2w
+                                    String data = null;
+                                    try {
+                                        File myObj = new File("C:\\Users\\Abhi\\Desktop\\Core2Web\\faceRecognition_v2\\javaFiles\\" + batchSelector.getValue() + "\\prevId.txt");
+                                        Scanner myReader = new Scanner(myObj);
+                                        while (myReader.hasNextLine()) {
+                                            data = myReader.nextLine();
+                                        }
+                                        myReader.close();
+                                    } catch (FileNotFoundException e) {
+                                        System.out.println("An error occurred.");
+                                        e.printStackTrace();
+                                    }
+
+                                    System.out.println(data);
+
+                                    //writing new id in the file
+                                    FileWriter fw=new FileWriter("C:\\Users\\Abhi\\Desktop\\Core2Web\\faceRecognition_v2\\javaFiles\\" + batchSelector.getValue() + "\\prevId.txt");
+                                    int k = Integer.valueOf(data);
+                                    k = k + 1;
+                                    String str = Integer.toString(k);
+                                    fw.write(str);
+                                    fw.close();
+                                    System.out.println(k);
+
+                                    studentID = k - 1;
+                                    selectedBatch = batchSelector.getValue();
+                                    studentName = firstName.getText() + " " + lastName.getText();
+                                    studentEmail = email.getText();
+                                    studentNumber = primaryNumber.getText();
+
+
+                                    finalStudId = batchSelector.getValue() + "_" + Integer.toString(studentID);
+                                    System.out.println("finalStud id = " + finalStudId);
+
+
+                                    //write id's to another file for python execution
+                                    BufferedWriter bw = null;
+                                    FileWriter f = null;
+
+                                    try {
+                                        File file = new File ("C:\\Users\\Abhi\\Desktop\\Core2Web\\faceRecognition_v2\\javaFiles\\" + batchSelector.getValue() + "\\allIds.txt");
+                                        f = new FileWriter(file.getAbsoluteFile(), true);
+                                        bw = new BufferedWriter(f);
+                                        bw.write(batchSelector.getValue() + "_" + Integer.toString(studentID) + "\n");
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } finally {
+                                        try {
+                                            if (bw != null)
+                                                bw.close();
+                                            if (f != null)
+                                                f.close();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+
+                                    //document.append("studentID",batchSelector.getValue() + "-"+ studentID);
+                                    document.append("studentID", finalStudId);
                                     document.append("entryAddedBy",Controller.adminFirstName + " " + Controller.adminLastName);
 
                                     mongoCollection.insertOne(document);
 
                                     dialogDisplay(stackPane, "Student has been added Successfully ...");
-                                    studentID++;
+
+                                    Pane fxml = FXMLLoader.load(getClass().getResource("../views/WebcamControls.fxml"));
+                                    adminOperationsArea.getChildren().removeAll();
+                                    adminOperationsArea.getChildren().setAll(fxml);
+
+                                    webcamControls.rollno = batchSelector.getValue()+"-"+studentID;
+
+//                                    if (batchSelector.getValue().equals("C2W-JAVA-8"))
+//                                        javaBufferedWriter.write(batchSelector.getValue()+"-"+studentID);
+//                                    else if (batchSelector.getValue().equals("C2W-PPA-5"))
+//                                        ppaBufferedWriter.write(batchSelector.getValue()+"-"+studentID);
+//                                    else if (batchSelector.getValue().equals("C2W-PYTHON-1-MORN"))
+//                                        pymorningBufferedWriter.write(batchSelector.getValue()+"-"+studentID);
+//                                    else
+//                                        pyweekendBufferedWriter.write(batchSelector.getValue()+"-"+studentID);
+//
+//                                    javaBufferedWriter.close();
+//                                    ppaBufferedWriter.close();
+//                                    pyweekendBufferedWriter.close();
+//                                    pymorningBufferedWriter.close();
+//
+//                                    ppafileWriter.close();
+//                                    javafileWriter.close();
+//                                    pymorningWriter.close();
+//                                    pyweekendWriter.close();
+//
+
+
+                                    //studentID++;
                                     totalStudentCount++;
 
 
@@ -371,9 +466,11 @@ public class AddNewStudent {
         assert addNewStudentBtn != null : "fx:id=\"addNewStudentBtn\" was not injected: check your FXML file 'AddNewStudent.fxml'.";
 
         connectToDatabase();
-        batchSelector.getItems().add("C2W-JAVA-8");
-        batchSelector.getItems().add("C2W-PPA-5");
-        batchSelector.getItems().add("C2w-PYTHON-1");
+        batchSelector.getItems().add("C2W_PPA5");
+        batchSelector.getItems().add("C2W_JAVA9");
+        batchSelector.getItems().add("C2W_PYTHON_MORN");
+        batchSelector.getItems().add("C2W_PYTHON_EVEN");
+
 
     }
 

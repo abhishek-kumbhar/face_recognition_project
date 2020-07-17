@@ -17,19 +17,9 @@ import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
@@ -38,6 +28,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import org.bson.Document;
 import sample.Main;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignupPageController {
 
@@ -113,6 +109,7 @@ public class SignupPageController {
      */
     @FXML
     void backBtnPressed(MouseEvent event) throws IOException {
+
         Parent fxml = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
         Main.stage.getScene().setRoot(fxml);
     }
@@ -193,11 +190,11 @@ public class SignupPageController {
 
                                 // check for weather either one of three checkboxes is clicked and checked
                                 if (ppaCheckbox.isSelected())
-                                    document.append("PPA", "true");
-                                if (javaCheckbox.isSelected())
-                                    document.append("JAVA", "true");
-                                if (pythonCheckbox.isSelected())
-                                    document.append("PYTHON", "true");
+                                    document.append("batch", "PPA");
+                                else if (javaCheckbox.isSelected())
+                                    document.append("batch", "JAVA");
+                                else
+                                    document.append("batch", "PYTHON");
 
                                 mongoCollection.insertOne(document);
 
@@ -221,7 +218,7 @@ public class SignupPageController {
 
                             } catch (Exception e) {
                                 System.out.println("Err");
-                                dialogDisplay(stackPane, "Error Creating New Account,\nTry Again ...");
+                               // dialogDisplay(stackPane, "Error Creating New Account,\nTry Again ...");
                             }
 
 

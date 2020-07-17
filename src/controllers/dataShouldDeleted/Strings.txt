@@ -1,0 +1,5 @@
+abhishek_image = face_recognition.load_image_file("C:\\Users\\Abhi\\Desktop\\examples\\Faces\\abhishek.jpg")
+sanket_image = face_recognition.load_image_file("C:\\Users\\Abhi\\Desktop\\examples\\Faces\\sanket.jpg")
+omkar_image = face_recognition.load_image_file("C:\\Users\\Abhi\\Desktop\\examples\\Faces\\omkar.jpg")
+prajwal_image = face_recognition.load_image_file("C:\\Users\\Abhi\\Desktop\\examples\\Faces\\prajwal.jpg")
+sundar_image = face_recognition.load_image_file("C:\\Users\\Abhi\\Desktop\\examples\\Faces\\sundar.jpg")

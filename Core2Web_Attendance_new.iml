@@ -7,11 +7,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
-    <orderEntry type="library" name="fontawesomefx-8.9" level="project" />
     <orderEntry type="library" name="org.mongodb:mongodb-driver:3.7.0" level="project" />
-    <orderEntry type="library" name="webcam-capture-0.3.12" level="project" />
-    <orderEntry type="library" name="bridj-0.7.0" level="project" />
-    <orderEntry type="library" name="slf4j-simple-1.6.1" level="project" />
+    <orderEntry type="library" name="bridj-0.7.01" level="project" />
+    <orderEntry type="library" name="fontawesomefx-8.91" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.2" level="project" />
+    <orderEntry type="library" name="slf4j-simple-1.6.11" level="project" />
+    <orderEntry type="library" name="webcam-capture-0.3.121" level="project" />
+    <orderEntry type="library" name="jfoenix-8.0.81" level="project" />
   </component>
 </module>

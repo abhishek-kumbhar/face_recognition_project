@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.webcamControls">
+    <!-- TODO Add Nodes -->
+    <bottom>
+        <FlowPane fx:id="fpBottomPane" alignment="CENTER" columnHalignment="CENTER" hgap="50.0" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color:#ccc;">
+            <children>
+            <JFXButton fx:id="btnStartCamera" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#startCamera" prefHeight="50.0" prefWidth="150.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Start Camera" />
+            <JFXButton fx:id="btnStopCamera" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#stopCamera" prefHeight="50.0" prefWidth="150.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Stop Camera" />
+            <JFXButton fx:id="btnDisposeCamera" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#disposeCamera" prefHeight="50.0" prefWidth="150.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Dispose Camera" />
+            <JFXButton fx:id="btnClickImgage" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#capture" prefHeight="50.0" prefWidth="150.0" ripplerFill="BLACK" styleClass="loginBtn" stylesheets="@../sample/stylesheet.css" text="Click Image" />
+            </children>
+        </FlowPane>
+    </bottom>
+   <left>
+          <ComboBox fx:id="cbCameraOptions" prefHeight="39.0" prefWidth="263.0" style="-fx-font-size: 18px;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="660.0" left="550.0" />
+         </BorderPane.margin>
+      </ComboBox>
+   </left>
+   <top>
+      <Label text="TAKE A IMAGE OF STUDENT : " BorderPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="Impact" size="28.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="30.0" top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <right>
+      <StackPane fx:id="contentLoader" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="845.0" BorderPane.alignment="CENTER">
+         <children>
+              <BorderPane fx:id="bpWebCamPaneHolder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="718.0">
+                  <center>
+                      <ImageView fx:id="imgWebCamCapturedImage" fitHeight="574.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER_LEFT">
+                     <BorderPane.margin>
+                        <Insets right="40.0" />
+                     </BorderPane.margin>
+                  </ImageView>
+                  </center>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </right>
+</BorderPane>

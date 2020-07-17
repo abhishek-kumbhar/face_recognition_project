@@ -11,22 +11,13 @@ package controllers;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.events.JFXDialogEvent;
-import com.mongodb.*;
-import com.mongodb.client.FindIterable;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
-
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,11 +35,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javafx.util.Duration;
-import org.bson.BSONObject;
-import org.bson.BsonDocument;
 import org.bson.Document;
 
-import javax.print.Doc;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class Controller {
@@ -134,14 +125,9 @@ public class Controller {
 
         MongoCursor<Document> cursor = mongoCollection.find().iterator();
 
-        //FindIterable<Document> fi = mongoCollection.find(Filters.eq("username", username));
-        //MongoCursor<Document> cursor = fi.iterator();
-
         if (!usernameLoginPage.getText().isEmpty()) {
 
             if (!passwordLoginPage.getText().isEmpty()) {
-
-
 
                 while (cursor.hasNext()) {
 
@@ -154,6 +140,8 @@ public class Controller {
                         if (document.getString("password").equals(password)) {
 
                             System.out.println("Successfully Logged In ...");
+                            adminFirstName = document.getString("firstName");
+                            adminLastName = document.getString("lastName");
                             //dialogDisplay(stackPane, "Successfully Logged In ...");
 
                             // Go To Admin Panel DashBoard ... .. .
@@ -172,8 +160,7 @@ public class Controller {
                             newStage.setScene(new Scene(root, 1150, 768));
                             newStage.show();
 
-                            adminFirstName = document.getString("firstName");
-                            adminLastName = document.getString("lastName");
+
 
                             break;
 

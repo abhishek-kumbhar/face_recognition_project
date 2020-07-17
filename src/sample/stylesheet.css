@@ -2,7 +2,7 @@
 
 .forgteBtn:hover{
 
-    -fx-text-fill: #FF6B6B;
+    -fx-text-fill: #A854D4;
     -fx-underline:true;
 }
 
@@ -13,17 +13,30 @@
 
 .loginBtn{
 
-    -fx-background-color:#FF6B6B ;
+    -fx-background-color:#A854D4 ;
     -fx-text-fill:#ffff;
     -fx-background-radius:4px;
+
+}
+
+.loginView{
+
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #A854D4, #D1395C)
+
+}
+
+.notView{
+
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #D1395C, #A854D4)
+
 
 }
 
 .loginBtn:hover{
 
     -fx-background-color:transparent;
-    -fx-text-fill: #FF6B6B;
-    -fx-border-color: #FF6B6B;
+    -fx-text-fill: #A854D4;
+    -fx-border-color: #A854D4;
     -fx-border-width: 2px;
     -fx-boder-style:solid;
     -fx-border-radius:4px;
@@ -31,7 +44,7 @@
 
 .dialogBtn{
 
-    -fx-background-color:#FF6B6B ;
+    -fx-background-color:#A854D4 ;
     -fx-text-fill:#ffff;
     -fx-background-radius:4px;
 
@@ -40,15 +53,15 @@
 .dialogBtn:hover{
 
     -fx-background-color:transparent;
-    -fx-text-fill: #FF6B6B;
-   /* -fx-border-color: #FF6B6B;
+    -fx-text-fill: #A854D4;
+   /* -fx-border-color: #A854D4;
     -fx-border-width: 2px;
     -fx-boder-style:solid;
     -fx-border-radius:4px;*/
 }
 
 .leftPanel{
-    -fx-background-color:#FF6B6B;
+    -fx-background-color:#A854D4;
 }
 
 .adminDashboard{
@@ -57,7 +70,7 @@
 }
 
 .signup{
-    -fx-text-fill: #FF6B6B;
+    -fx-text-fill: #A854D4;
 
 }
 .signup:hover{
@@ -66,7 +79,7 @@
 }
 .closeBtn{
 
-    -fx-fill:#FF6B6B;
+    -fx-fill:#A854D4;
 }
 
 .closeBtn:hover{
@@ -78,7 +91,7 @@
 
     -fx-background-color:white;
     -fx-text-color:#F2338A;
-    -fx-border-color:#FF6B6B;
+    -fx-border-color:#A854D4;
     -fx-border-width:10px;
     -fx-font-size:18;
     -fx-font-weight:bold;

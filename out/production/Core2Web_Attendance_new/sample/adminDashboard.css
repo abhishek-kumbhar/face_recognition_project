@@ -7,7 +7,7 @@
 
 .tableView{
 
-    -fx-background-color:#FF6B6B;
+    -fx-background-color:#A854D4;
 }
 
 .studentID{
@@ -16,7 +16,16 @@
 
 .Btn{
 
-    -fx-background-color:#FF6B6B ;
+    -fx-background-color:#A854D4 ;
+    -fx-text-fill:#ffff;
+    -fx-background-radius:4px;
+
+}
+
+
+.BtnAdmin{
+
+    -fx-background-color:#A854D4 ;
     -fx-text-fill:#ffff;
     -fx-background-radius:4px;
 
@@ -31,7 +40,7 @@
 }
 .dialogBtn{
 
-    -fx-background-color:#FF6B6B ;
+    -fx-background-color:#A854D4 ;
     -fx-text-fill:#ffff;
     -fx-background-radius:4px;
 
@@ -40,8 +49,8 @@
 .dialogBtn:hover{
 
     -fx-background-color:transparent;
-    -fx-text-fill: #FF6B6B;
-   /* -fx-border-color: #FF6B6B;
+    -fx-text-fill: #A854D4;
+   /* -fx-border-color: #A854D4;
     -fx-border-width: 2px;
     -fx-boder-style:solid;
     -fx-border-radius:4px;*/
@@ -50,7 +59,7 @@
 
     -fx-background-color:white;
     -fx-text-color:#F2338A;
-    -fx-border-color:#FF6B6B;
+    -fx-border-color:#A854D4;
     -fx-border-width:10px;
     -fx-font-size:18;
     -fx-font-weight:bold;
@@ -60,15 +69,26 @@
 .Btn:hover{
 
     -fx-background-color:transparent;
-    -fx-text-fill: #FF6B6B;
-    -fx-border-color: #FF6B6B;
+    -fx-text-fill: #A854D4;
+    -fx-border-color: #A854D4;
     -fx-border-width: 2px;
     -fx-boder-style:solid;
     -fx-border-radius:4px;
 }
+
+.BtnAdmin:hover{
+
+    -fx-background-color:transparent;
+    -fx-text-fill: #A854D4;
+    -fx-border-color: #A854D4;
+    -fx-border-width: 2px;
+    -fx-boder-style:solid;
+    -fx-border-radius:4px;
+}
+
 .closeBtn{
 
-    -fx-fill:#FF6B6B;
+    -fx-fill:#A854D4;
 }
 
 .closeBtn:hover{
@@ -85,7 +105,7 @@
 
 .button1:hover {
     -fx-background-color: #E5E5E5;
-    -fx-text-fill: #FF6B6B;
+    -fx-text-fill: #A854D4;
     -fx-text-style:Bold;
 }
 
@@ -103,7 +123,7 @@
 
 .logout:hover {
     -fx-background-color: #E5E5E5;
-    -fx-text-fill: #FF6B6B;
+    -fx-text-fill: #A854D4;
     -fx-text-style:Bold;
 }
 
@@ -138,7 +158,7 @@
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size: 10;
-    -fx-background-color: #FF6B6B;
+    -fx-background-color: #A854D4;
     -fx-font-size:12px;
 }
 
@@ -161,12 +181,12 @@
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #FF6B6B;
+    -fx-background-color: #A854D4;
     -fx-font-size:12px;
 }
 .table-row-cell:nth-child(even) { -fx-background-color: cyan; }
 .table-row-cell:selected .text {
-    -fx-fill: #FF6B6B;
+    -fx-fill: #A854D4;
     -fx-font-size:12px;
 
 
@@ -194,7 +214,7 @@
     -fx-font-size: 12px;
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
-    -fx-background-color:#FF6B6B;
+    -fx-background-color:#A854D4;
  }
 .filterText{
 
